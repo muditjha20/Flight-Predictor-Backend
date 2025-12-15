@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: flight-price-api
+    name: Flight-Predictor-Api
     env: python
     runtime: python
     buildCommand: pip install --upgrade pip && pip install -r requirements.txt
