@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: flight-price-api
+    env: python
+    runtime: python
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
