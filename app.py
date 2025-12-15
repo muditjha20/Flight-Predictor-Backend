@@ -5,6 +5,9 @@ import pandas as pd
 from flask import Flask, request, jsonify
 from datetime import datetime
 import warnings
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 
 # load saved bundle (preprocessor + xgb + nn + feature indices + alpha)
 with open("price_ensemble_bundle.pkl", "rb") as f:
@@ -201,10 +204,16 @@ def build_feature_row(payload):
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "ok"})
+
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok"})
+
 
 
 @app.route("/", methods=["GET"])
